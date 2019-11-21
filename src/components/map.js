@@ -3,6 +3,7 @@ import ReactMapGL, { Marker, Popup, NavigationControl, GeolocateControl } from '
 import axios from 'axios'
 
 import Pin from './Pin'
+import ParkInfo from './ParkInfo'
 
 
 
@@ -19,7 +20,7 @@ class Map1 extends React.Component {
         zoom: 15,
         mapboxApiAccessToken: process.env.MAPBOX_KEY
       },
-      showPopup: [],
+      showPopup: null,
       bikedata: null
 
     }
@@ -36,8 +37,8 @@ class Map1 extends React.Component {
   componentDidMount() {
     this.setState({
       viewport: {
-        width: 500,
-        height: 500,
+        width: 400,
+        height: 400,
         latitude: parseFloat(this.props.match.params.latitude),
         longitude: parseFloat(this.props.match.params.longitude),
         zoom: 15,
@@ -49,7 +50,6 @@ class Map1 extends React.Component {
     }, 500)
   }
 
-  // bikedata.places[].lon / .lat
   loadBikeParks = () => {
     return this.state.bikedata.places.map((ele, i) => {
       return (
@@ -58,10 +58,29 @@ class Map1 extends React.Component {
           latitude={ele.lat}
           longitude={ele.lon}
         >
-          <Pin />
+          <Pin size={20} onClick={() => this.setState({ showPopup: ele })}/>
         </Marker>
       )
     })
+  }
+
+  loadBikePopup = () => {
+    const { showPopup } = this.state
+
+    return (
+      showPopup && (
+        <Popup
+          tipSize={5}
+          anchor="top"
+          longitude={showPopup.lon}
+          latitude={showPopup.lat}
+          closeOnClick={false}
+          onClose={() => this.setState({ showPopup: null })}
+        >
+          <ParkInfo info={ showPopup } />
+        </Popup>
+      )
+    )
   }
 
 
@@ -74,6 +93,7 @@ class Map1 extends React.Component {
           mapStyle="mapbox://styles/mapbox/outdoors-v11"
           onViewportChange={(viewport) => this.setState({ viewport })}>
           {this.loadBikeParks()}
+          {this.loadBikePopup()}
           <GeolocateControl
             positionOptions={{ enableHighAccuracy: true }}
             trackUserLocation={true}
