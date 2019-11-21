@@ -1,11 +1,17 @@
 import React from 'react'
-import ReactMapGL, { Marker, Popup, NavigationControl, GeolocateControl } from 'react-map-gl'
+import ReactMapGL, { Marker, Popup, GeolocateControl } from 'react-map-gl'
 import axios from 'axios'
 
 import Pin from './Pin'
 import ParkInfo from './ParkInfo'
+import Directions from './Directions'
 
-
+const geolocateStyle = {
+  position: 'absolute',
+  top: 0,
+  left: 0,
+  margin: 10
+}
 
 class Map1 extends React.Component {
 
@@ -97,10 +103,11 @@ class Map1 extends React.Component {
           <GeolocateControl
             positionOptions={{ enableHighAccuracy: true }}
             trackUserLocation={true}
-            fitBoundsOptions={{ Zoom: 14 }}
+            style={ geolocateStyle }
           />
         </ReactMapGL>
         <button onClick={() => this.hook()}>Refresh</button>
+        <Directions showPopup={ this.state.showPopup } />
       </div>
     )
   }
