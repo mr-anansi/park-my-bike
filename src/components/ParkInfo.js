@@ -3,7 +3,6 @@ import React, { PureComponent } from 'react'
 export default class ParkInfo extends PureComponent {
   render() {
     const { info } = this.props
-    // const displayName = `${info.city}, ${info.state}`
 
     return (
       <div>
@@ -19,7 +18,3 @@ export default class ParkInfo extends PureComponent {
   }
 }
 
-
-//.distance
-//.additionalPropertise[8].value
-//.additionalPropertise[10].value

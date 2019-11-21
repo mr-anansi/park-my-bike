@@ -53,7 +53,7 @@ class Map1 extends React.Component {
     })
     setTimeout(() => {
       this.hook()
-    }, 500)
+    }, 300)
   }
 
   loadBikeParks = () => {
@@ -64,7 +64,7 @@ class Map1 extends React.Component {
           latitude={ele.lat}
           longitude={ele.lon}
         >
-          <Pin size={20} onClick={() => this.setState({ showPopup: ele })}/>
+          <Pin size={20} onClick={() => this.setState({ showPopup: ele })} />
         </Marker>
       )
     })
@@ -83,7 +83,7 @@ class Map1 extends React.Component {
           closeOnClick={false}
           onClose={() => this.setState({ showPopup: null })}
         >
-          <ParkInfo info={ showPopup } />
+          <ParkInfo info={showPopup} />
         </Popup>
       )
     )
@@ -93,22 +93,24 @@ class Map1 extends React.Component {
   render() {
     if (this.state.bikedata === null) return <div>loading</div>
     return (
-      <div>
-        <ReactMapGL
-          {...this.state.viewport}
-          mapStyle="mapbox://styles/mapbox/outdoors-v11"
-          onViewportChange={(viewport) => this.setState({ viewport })}>
-          {this.loadBikeParks()}
-          {this.loadBikePopup()}
-          <GeolocateControl
-            positionOptions={{ enableHighAccuracy: true }}
-            trackUserLocation={true}
-            style={ geolocateStyle }
-          />
-        </ReactMapGL>
-        <button onClick={() => this.hook()}>Refresh</button>
-        <Directions showPopup={ this.state.showPopup } />
-      </div>
+      <section className="section">
+        <div className="container">
+          <ReactMapGL
+            {...this.state.viewport}
+            mapStyle="mapbox://styles/mapbox/outdoors-v11"
+            onViewportChange={(viewport) => this.setState({ viewport })}>
+            {this.loadBikeParks()}
+            {this.loadBikePopup()}
+            <GeolocateControl
+              positionOptions={{ enableHighAccuracy: true }}
+              trackUserLocation={true}
+              style={geolocateStyle}
+            />
+          </ReactMapGL>
+          <button className="button" onClick={() => this.hook()}>Refresh</button>
+          <Directions showPopup={this.state.showPopup} />
+        </div>
+      </section>
     )
   }
 }

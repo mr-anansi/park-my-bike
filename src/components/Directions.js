@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react'
 import axios from 'axios'
 
+
 export default class Directions extends PureComponent {
 
   constructor(props) {
@@ -9,7 +10,8 @@ export default class Directions extends PureComponent {
       postcodeStart: null,
       postcodeFinish: null,
       errors: null,
-      directions: null
+      directions: null,
+      savedPostcodeStart: null
     }
   }
 
@@ -27,29 +29,45 @@ export default class Directions extends PureComponent {
       postcodeStart: postcode,
       errors: ''
     })
-    console.log(this.state.postcodeStart)
-    console.log(this.state.postcodeFinish)
+
   }
-  handleSubmit(e) {
-    e.preventDefault()
-    axios.get(`https://api.tfl.gov.uk/Journey/JourneyResults/${this.state.postcodeStart}/to/${this.state.postcodeFinish}?cyclePreference=AllTheWay&bikeProficiency=Easy`)
+  hooktfl = () => {
+    axios.get(`https://api.tfl.gov.uk/Journey/JourneyResults/${this.state.savedPostcodeStart}/to/${this.state.postcodeFinish}?cyclePreference=AllTheWay&bikeProficiency=Easy`)
       .then(resp => {
         this.setState({
           directions: resp.data.journeys[0]
+
         })
       })
-      .catch(() => this.setState({ errors: 'Invalid Postcode' }))
+      .catch(() => this.setState({
+        errors: 'Invalid Postcode',
+        savedPostcodeStart: null
+      }))
+  }
+  handleSubmit(e) {
+    e.preventDefault()
+    this.setState({
+      savedPostcodeStart: this.state.postcodeStart
+    })
+    if (this.state.savedPostcodeStart === null) {
+      setTimeout(() => {
+        this.hooktfl()
+      }, 300)
+      return
+    }
+    this.hooktfl()
 
   }
   resetLocation() {
     this.setState({
       postcodeStart: null,
       errors: '',
-      directions: null
+      directions: null,
+      savedPostcodeStart: null
     })
   }
   directions = () => {
-    if (this.state.directions === null) {
+    if (this.state.savedPostcodeStart === null) {
       return (
         <section className="section">
           <div className="container">
@@ -74,30 +92,35 @@ export default class Directions extends PureComponent {
           </div>
         </section>
       )
+    } else if (this.state.directions === null) {
+      this.hooktfl()
+      return
     } else {
       const data = this.state.directions.legs[0].instruction.steps
       return (
-        <div>
-          <button onClick={() => this.resetLocation()}>Change starting location</button>
-          <table className="table table is-hoverable table is-fullwidth">
-            <thead>
-              <tr>
-                <th>Direction</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              {data.map((ele, i) => {
-                return (
-                  <tr key={i}>
-                    <td>{ele.descriptionHeading}</td>
-                    <td>{ele.description}</td>
-                  </tr>
-                )
-              })}
-            </tbody>
-          </table>
-        </div>
+        <section className="section">
+          <div className="container">
+            <button className="button" onClick={() => this.resetLocation()}>Change starting location</button>
+            <table className="table table is-hoverable table">
+              <thead>
+                <tr>
+                  <th>Direction</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                {data.map((ele, i) => {
+                  return (
+                    <tr key={i}>
+                      <td>{ele.descriptionHeading}</td>
+                      <td>{ele.description}</td>
+                    </tr>
+                  )
+                })}
+              </tbody>
+            </table>
+          </div>
+        </section>
       )
     }
   }
@@ -105,11 +128,14 @@ export default class Directions extends PureComponent {
 
   render() {
     if (this.props.showPopup === null) {
-      this.setState({ errors: null })
+      this.setState({
+        errors: '',
+        directions: null,
+        postcodeStart: null
+      })
       return <div>Click on a Pin for Directions</div>
     } else {
       this.hook()
-      console.log(this.state.directions)
       return (
         <div>
           {this.directions()}
