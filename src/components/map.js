@@ -2,6 +2,8 @@ import React from 'react'
 import ReactMapGL, { Marker, Popup, NavigationControl, GeolocateControl } from 'react-map-gl'
 import axios from 'axios'
 
+import Pin from './Pin'
+
 
 
 class Map1 extends React.Component {
@@ -34,8 +36,8 @@ class Map1 extends React.Component {
   componentDidMount() {
     this.setState({
       viewport: {
-        width: 400,
-        height: 400,
+        width: 500,
+        height: 500,
         latitude: parseFloat(this.props.match.params.latitude),
         longitude: parseFloat(this.props.match.params.longitude),
         zoom: 15,
@@ -56,7 +58,7 @@ class Map1 extends React.Component {
           latitude={ele.lat}
           longitude={ele.lon}
         >
-          <p>Bike Park</p>
+          <Pin />
         </Marker>
       )
     })
@@ -71,17 +73,11 @@ class Map1 extends React.Component {
           {...this.state.viewport}
           mapStyle="mapbox://styles/mapbox/outdoors-v11"
           onViewportChange={(viewport) => this.setState({ viewport })}>
-          <Marker
-            latitude={51.464093}
-            longitude={-0.12001}
-          >
-            Hello
-          </Marker>
           {this.loadBikeParks()}
           <GeolocateControl
             positionOptions={{ enableHighAccuracy: true }}
             trackUserLocation={true}
-            fitBoundsOptions={{ maxZoom: 14 }}
+            fitBoundsOptions={{ Zoom: 14 }}
           />
         </ReactMapGL>
         <button onClick={() => this.hook()}>Refresh</button>
