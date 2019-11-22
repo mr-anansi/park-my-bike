@@ -10,19 +10,19 @@ const pinStyle = {
   stroke: 'none'
 }
 
-export default class Pin extends PureComponent {
+export default class PlainPin extends PureComponent {
   render() {
-    const { size = 20, onClick } = this.props
+
 
     return (
       <svg
-        height={ size }
+        height={ 12 }
         viewBox="0 0 24 24"
         style={{
-          ...pinStyle,
-          transform: `translate(${-size / 2}px,${-size}px)`
+          ...pinStyle
+          // transform: `translate(${-size / 2}px,${-size}px)`
         }}
-        onClick={onClick}
+
       >
         <path d={ICON} />
       </svg>

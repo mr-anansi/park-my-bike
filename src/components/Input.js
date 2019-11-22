@@ -47,33 +47,61 @@ class Input extends React.Component {
   render() {
     console.log(this.state.export)
     return (
-      <section className="section">
-        <div className="container">
-          <div className="title">Submit Destiation Postcode</div>
-          <form className="form" onSubmit={(e) => this.handleSubmit(e)}>
-            <div className="field">
-              <label htmlFor="" className="label">Postcode</label>
-              <div className="control">
-                <input
-                  onChange={(e) => this.handleChange(e)}
-                  type="text"
-                  name="postcode"
-                  className="postcode"
-                />
+
+      <section className="hero is-fullheight">
+        <div className="hero-body">
+          <div className="container">
+            <div className="title"><h1>Park My Bike</h1></div>
+            <div className="subtitle">Submit Destiation Postcode</div>
+            <form className="form" onSubmit={(e) => this.handleSubmit(e)}>
+              <div className="field">
+                {/* <label htmlFor="" className="label">Postcode</label> */}
+                <div className="control">
+                  <input
+                    onChange={(e) => this.handleChange(e)}
+                    type="text"
+                    name="postcode"
+                    className="postcode"
+                  />
+                </div>
               </div>
-            </div>
-            {this.state.errors && <small className="help is-danger">
-              {this.state.errors}
-            </small>}
-            <button className="button is-success">Search</button>
-          </form>
+              {this.state.errors && <small className="help is-danger">
+                {this.state.errors}
+              </small>}
+              <button className="button">Search</button>
+            </form>
+          </div>
         </div>
       </section>
+
     )
   }
 }
 export default Input
 
 
+
+{/* <section className="section">
+<div className="container">
+  <div className="title">Submit Destiation Postcode</div>
+  <form className="form" onSubmit={(e) => this.handleSubmit(e)}>
+    <div className="field">
+      <label htmlFor="" className="label">Postcode</label>
+      <div className="control">
+        <input
+          onChange={(e) => this.handleChange(e)}
+          type="text"
+          name="postcode"
+          className="postcode"
+        />
+      </div>
+    </div>
+    {this.state.errors && <small className="help is-danger">
+      {this.state.errors}
+    </small>}
+    <button className="button is-success">Search</button>
+  </form>
+</div>
+</section> */}
 
 

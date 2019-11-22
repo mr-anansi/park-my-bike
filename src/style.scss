@@ -1,1 +1,83 @@
+*{
+  box-sizing: border-box;
+}
 
+body{
+  height: 100vh;
+  background-color:  rgb(57,66,78);
+}
+#root{
+  background-color:  rgb(57,66,78);
+}
+#start-green{
+  font-size: 16px;
+  color: green
+}
+#finish-red{
+  color: red;
+  font-size:16px;
+}
+table {
+  font-size: 14px;
+
+}
+#center2{
+  display:flex;
+  justify-content: center;
+}
+
+.button-center{
+  text-align: center;
+}
+ #button1{
+  width: 200px;
+  margin: 10px;
+ }
+ img.padd{
+   margin: 5px;
+ }
+ p{
+   font-size: 12px;
+ }
+ input{
+   width: 200px;
+   height: 25px;
+   font-size: 12px;
+ }
+ .postcode{
+  border: 1px solid  rgb(57,66,78);
+ }
+ 
+ .title{
+  font-family: 'Istok Web', sans-serif;
+  font-size: 36px;
+  color: rgb(57,66,78);
+    h1 {
+      font-size: 48px;
+      font-weight: bold;
+      color: rgb(255,255,255)
+    }
+ }
+
+ .subtitle{
+  font-family: 'Istok Web', sans-serif;
+ }
+ .hero{
+   background-image: url('./components/Images/background-main.jpg');
+   height: 100%;
+
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+    .subtitle{
+      color: white;
+    }
+ }
+
+ .section {
+
+ .container {
+   background-color: rgba(255,255,255,0.9);
+   padding: 10px;
+ }
+}

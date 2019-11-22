@@ -1,5 +1,7 @@
 import React, { PureComponent } from 'react'
 import axios from 'axios'
+import PlainPin from './PlainPin'
+// import Loader from './Loader'
 
 
 export default class Directions extends PureComponent {
@@ -69,28 +71,27 @@ export default class Directions extends PureComponent {
   directions = () => {
     if (this.state.savedPostcodeStart === null) {
       return (
-        <section className="section">
-          <div className="container">
-            <div className="title">Where are you starting from?</div>
-            <form className="form" onSubmit={(e) => this.handleSubmit(e)}>
-              <div className="field">
-                <label htmlFor="" className="label">Postcode</label>
-                <div className="control">
-                  <input
-                    onChange={(e) => this.handleChange(e)}
-                    type="text"
-                    name="postcode"
-                    className="postcode"
-                  />
-                </div>
+
+        <div className="container">
+          <div className="subtitle">Starting Postcode</div>
+          <form className="form" onSubmit={(e) => this.handleSubmit(e)}>
+            <div className="field">
+              <div className="control">
+                <input
+                  onChange={(e) => this.handleChange(e)}
+                  type="text"
+                  name="postcode"
+                  className="postcode"
+                />
               </div>
-              {this.state.errors && <small className="help is-danger">
-                {this.state.errors}
-              </small>}
-              <button className="button is-success">Search</button>
-            </form>
-          </div>
-        </section>
+            </div>
+            {this.state.errors && <small className="help is-danger">
+              {this.state.errors}
+            </small>}
+            <button className="button">Search</button>
+          </form>
+        </div>
+
       )
     } else if (this.state.directions === null) {
       this.hooktfl()
@@ -98,29 +99,35 @@ export default class Directions extends PureComponent {
     } else {
       const data = this.state.directions.legs[0].instruction.steps
       return (
-        <section className="section">
-          <div className="container">
-            <button className="button" onClick={() => this.resetLocation()}>Change starting location</button>
-            <table className="table table is-hoverable table">
-              <thead>
-                <tr>
-                  <th>Direction</th>
-                  <th></th>
-                </tr>
-              </thead>
-              <tbody>
-                {data.map((ele, i) => {
-                  return (
-                    <tr key={i}>
-                      <td>{ele.descriptionHeading}</td>
-                      <td>{ele.description}</td>
-                    </tr>
-                  )
-                })}
-              </tbody>
-            </table>
+        <div className="container">
+          <div className="button-center">
+            <button className="button" onClick={() => this.resetLocation()}>Change starting location  <PlainPin /></button>
           </div>
-        </section>
+          <table className="table table is-hoverable table">
+            <thead>
+              <tr>
+                <th id="start-green">Start</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tfoot>
+              <tr>
+                <th id="finish-red">Finish</th>
+                <th></th>
+              </tr>
+            </tfoot>
+            <tbody>
+              {data.map((ele, i) => {
+                return (
+                  <tr key={i}>
+                    <td>{ele.descriptionHeading}</td>
+                    <td>{ele.description}</td>
+                  </tr>
+                )
+              })}
+            </tbody>
+          </table>
+        </div>
       )
     }
   }
@@ -133,7 +140,7 @@ export default class Directions extends PureComponent {
         directions: null,
         postcodeStart: null
       })
-      return <div>Click on a Pin for Directions</div>
+      return <div className="button-center">Click on a Pin <PlainPin /> for Directions</div>
     } else {
       this.hook()
       return (

@@ -19,8 +19,8 @@ class Map1 extends React.Component {
     super(props)
     this.state = {
       viewport: {
-        width: 400,
-        height: 400,
+        // width: 400,
+        // height: 400,
         latitude: null,
         longitude: null,
         zoom: 15,
@@ -43,8 +43,8 @@ class Map1 extends React.Component {
   componentDidMount() {
     this.setState({
       viewport: {
-        width: 400,
-        height: 400,
+        // width: 400,
+        // height: 400,
         latitude: parseFloat(this.props.match.params.latitude),
         longitude: parseFloat(this.props.match.params.longitude),
         zoom: 15,
@@ -95,20 +95,38 @@ class Map1 extends React.Component {
     return (
       <section className="section">
         <div className="container">
-          <ReactMapGL
-            {...this.state.viewport}
-            mapStyle="mapbox://styles/mapbox/outdoors-v11"
-            onViewportChange={(viewport) => this.setState({ viewport })}>
-            {this.loadBikeParks()}
-            {this.loadBikePopup()}
-            <GeolocateControl
-              positionOptions={{ enableHighAccuracy: true }}
-              trackUserLocation={true}
-              style={geolocateStyle}
-            />
-          </ReactMapGL>
-          <button className="button" onClick={() => this.hook()}>Refresh</button>
-          <Directions showPopup={this.state.showPopup} />
+          <div className="title">Find your nearest cycle park</div>
+          <div className="columns">
+            <div className="column">
+              <div id="center2">
+                <div id="center">
+
+                  <ReactMapGL
+                    {...this.state.viewport}
+                    width="310px" // It always override the view(viewport) width state.
+                    height="310px"
+                    id="center2"
+                    mapStyle="mapbox://styles/mapbox/outdoors-v11"
+                    onViewportChange={(viewport) => this.setState({ viewport })}>
+                    {this.loadBikeParks()}
+                    {this.loadBikePopup()}
+                    <GeolocateControl
+                      positionOptions={{ enableHighAccuracy: true }}
+                      trackUserLocation={true}
+                      style={geolocateStyle}
+                    />
+                  </ReactMapGL>
+
+                </div>
+              </div>
+              <div className="button-center">
+                <button className="button" id="button1" onClick={() => this.hook()}>Find more locations 🚲</button>
+              </div>
+            </div>
+            <div className="column">
+              <Directions showPopup={this.state.showPopup} />
+            </div>
+          </div>
         </div>
       </section>
     )
