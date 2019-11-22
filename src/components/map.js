@@ -6,6 +6,7 @@ import Pin from './Pin'
 import ParkInfo from './ParkInfo'
 import Directions from './Directions'
 
+
 const geolocateStyle = {
   position: 'absolute',
   top: 0,
@@ -91,7 +92,7 @@ class Map1 extends React.Component {
 
 
   render() {
-    if (this.state.bikedata === null) return <div>loading</div>
+    if (this.state.bikedata === null) return <div>Loading...</div>
     return (
       <section className="section">
         <div className="container">
@@ -106,7 +107,7 @@ class Map1 extends React.Component {
                     width="310px" // It always override the view(viewport) width state.
                     height="310px"
                     id="center2"
-                    mapStyle="mapbox://styles/mapbox/outdoors-v11"
+                    mapStyle="mapbox://styles/mapbox/streets-v11"
                     onViewportChange={(viewport) => this.setState({ viewport })}>
                     {this.loadBikeParks()}
                     {this.loadBikePopup()}

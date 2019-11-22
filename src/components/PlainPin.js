@@ -6,21 +6,20 @@ const ICON = `M20.2,15.7L20.2,15.7c1.1-1.6,1.8-3.6,1.8-5.7c0-5.6-4.5-10-10-10S2,
 
 const pinStyle = {
   cursor: 'pointer',
-  fill: 'rgb(57,66,78)',
+  fill: 'rgb(102, 204, 141)',
   stroke: 'none'
 }
 
 export default class PlainPin extends PureComponent {
   render() {
-
+    const { size } = this.props
 
     return (
       <svg
-        height={ 12 }
+        height={ size }
         viewBox="0 0 24 24"
         style={{
           ...pinStyle
-          // transform: `translate(${-size / 2}px,${-size}px)`
         }}
 
       >

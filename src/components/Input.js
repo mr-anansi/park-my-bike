@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import PlainPin from './PlainPin'
 
 
 
@@ -51,8 +52,8 @@ class Input extends React.Component {
       <section className="hero is-fullheight">
         <div className="hero-body">
           <div className="container">
-            <div className="title"><h1>Park My Bike</h1></div>
-            <div className="subtitle">Submit Destiation Postcode</div>
+            <div className="title"><h1>Park My Bike <PlainPin size={36} /></h1></div>
+            <div className="subtitle">Submit destiation postcode</div>
             <form className="form" onSubmit={(e) => this.handleSubmit(e)}>
               <div className="field">
                 {/* <label htmlFor="" className="label">Postcode</label> */}

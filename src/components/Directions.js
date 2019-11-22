@@ -101,7 +101,7 @@ export default class Directions extends PureComponent {
       return (
         <div className="container">
           <div className="button-center">
-            <button className="button" onClick={() => this.resetLocation()}>Change starting location  <PlainPin /></button>
+            <button className="button" onClick={() => this.resetLocation()}>Change starting location<PlainPin size={12}/></button>
           </div>
           <table className="table table is-hoverable table">
             <thead>
@@ -140,7 +140,7 @@ export default class Directions extends PureComponent {
         directions: null,
         postcodeStart: null
       })
-      return <div className="button-center">Click on a Pin <PlainPin /> for Directions</div>
+      return <div className="button-center">Click on a Pin <PlainPin size = {12}/> for Directions</div>
     } else {
       this.hook()
       return (

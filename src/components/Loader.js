@@ -5,7 +5,7 @@ const Loader = () => {
   return (
     <section className="section">
       <div className="container">
-        <img width={180} src="https://giphy.com/embed/JrSU9r2TwaTXiQFNr3" className="padd" />
+        <img width={180} src="https://media.giphy.com/media/118xwvKxpcelC8/giphy.gif" className="padd" />
       </div>
     </section>
 
