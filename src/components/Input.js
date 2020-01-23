@@ -53,7 +53,7 @@ class Input extends React.Component {
         <div className="hero-body">
           <div className="container">
             <div className="title"><h1>Park My Bike <PlainPin size={36} /></h1></div>
-            <div className="subtitle">Submit destiation postcode</div>
+            <div className="subtitle">Submit destination postcode</div>
             <form className="form" onSubmit={(e) => this.handleSubmit(e)}>
               <div className="field">
                 {/* <label htmlFor="" className="label">Postcode</label> */}
