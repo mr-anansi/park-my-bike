@@ -137,7 +137,19 @@ loadBikeParks = () => {
 
 ## Challenges
 
-A major challenge was the time pressure and understanding what can be done in the time frame. A second element was using the new information we had just learned and working with a partner under such pressure. In the end, we were able to deliver a solid product by focusing on the core deliverable and branching out from the single computer working style for reasearch purposes.
+### Bugs
+
+We found the challenge of refreshing the directions a little difficult and took time to address the issue. If a user had followed through and got directions up and then decided to change the location they were navigating to, old directions would be shown.
+
+We took the evening to assess and came up with two different approaches, however, both suffer from the problem of delayed updates.
+
+@jonnysfarmer used timeout functions to get the API request to wait on a state update, while I used a component did update method to constantly check for condition changes. Ultimately, when the user changes parking spot there is often the need to select the location twice before the directions are updated.
+
+### Concluding Thoughts
+
+Overall, time pressure proved to be a challenge as well as  understanding what can be done in the time frame. Another element was using the new information we had just learned about React and APIs alongside a partner in a time pressure situation. 
+
+However, we were able to deliver a solid product by focusing on the core deliverable and branching out from the single computer working style for reasearch purposes.
 
 
 
