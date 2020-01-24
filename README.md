@@ -10,21 +10,21 @@ Together we created 'Park My Bike', an app that allows the user to locate parkin
 
 This made up my second project of the General Assembly Software Engineering Immersive program.
 
-##Technologies Used
-####Core
+## Technologies Used
+#### Core
 
 * HTML5
 * CSS3
 * Javascript (ES6)
 * React.js
 
-####Additional Libraries
+#### Additional Libraries
 
 * Bulma
 * Mapbox
 * Axios
 
-####Bundler
+#### Bundler
 
 *  webpack
 
@@ -76,17 +76,17 @@ Once the postcode is entered it is sent to the postcode API. If the postcode is 
 
 When the data is received from the TfL API, this data is plotted onto the map area. Through the usage of Mapbox markers and popup examples, the functionality to hide and display information on each location is rendered on every call, either through new start and end information or through the 'refresh' button. Take a look at the snippets below for functionality:
 
-Mapbox markers
+#### Mapbox Markers
 
-![](src/components/Images/Readme Images/markers.png)
+src/components/Images/Readme Images/markers.png
 
-Mapbox popups
+#### Popup Info
 
-![](src/components/Images/Readme Images/popup.png)
+src/components/Images/Readme Images/popup.png
 
-Main Screens
+#### Main Screens
 
-![](src/components/Images/Readme Images/homescreen.png)	![](src/components/Images/Readme Images/mainscreen.png)
+src/components/Images/Readme Images/homescreen.png	src/components/Images/Readme Images/mainscreen.png
 
 
 ### Code Snippets
