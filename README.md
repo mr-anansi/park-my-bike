@@ -78,15 +78,15 @@ When the data is received from the TfL API, this data is plotted onto the map ar
 
 #### Mapbox Markers
 
-![](src/components/Images/Readme Images/markers.png)
+![](/Users/reggiejnr/development/PROJECT/park-my-bike/src/components/Images/Readme Images/markers.png)
 
 #### Popup Info
 
-![](src/components/Images/Readme Images/popup.png)
+![](/Users/reggiejnr/development/PROJECT/park-my-bike/src/components/Images/Readme Images/popup.png)
 
 #### Main Screens
 
-![](src/components/Images/Readme Images/homescreen.png) ![](src/components/Images/Readme Images/mainscreen.png)
+![](/Users/reggiejnr/development/PROJECT/park-my-bike/src/components/Images/Readme Images/homescreen.png) ![](/Users/reggiejnr/development/PROJECT/park-my-bike/src/components/Images/Readme Images/mainscreen.png)
 
 
 ### Code Snippets
