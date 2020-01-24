@@ -29,7 +29,7 @@ class Input extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault()
-    axios.get(`http://api.postcodes.io/postcodes/${this.state.postcode}`)
+    axios.get(`https://api.postcodes.io/postcodes/${this.state.postcode}`)
       .then(resp => {
         console.log(resp)
         this.setState({

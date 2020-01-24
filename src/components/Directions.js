@@ -20,7 +20,7 @@ export default class Directions extends PureComponent {
   hook = () => {
     const long = this.props.showPopup.lon
     const lat = this.props.showPopup.lat
-    axios.get(`http://api.postcodes.io/postcodes?lon=${long}&lat=${lat}`)
+    axios.get(`https://api.postcodes.io/postcodes?lon=${long}&lat=${lat}`)
       .then(resp => this.setState({ postcodeFinish: resp.data.result[0].postcode }))
       .catch(() => this.setState({ err: 'Invalid Postcode' }))
   }

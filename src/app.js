@@ -17,7 +17,7 @@ class App extends React.Component {
     return (
       <BrowserRouter>
         <Switch>
-          <Route exact path="/" component={Input} />
+          <Route exact path="/park-my-bike/" component={Input} />
           <Route path="/map/:latitude/:longitude" component={Map1} />
         </Switch>
       </BrowserRouter>
