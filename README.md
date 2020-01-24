@@ -4,7 +4,7 @@
 
 This project was the result of a 48-hour paired hackathon challenge in which we were instructed to create an app that utilised one or more restful APIs.
 
-@jonnysfarmer and I worked on this project. As we both wanted the challenge of working with resources we hadn’t used up until this point, we decided a map-based app would be a great foundation. 
+My classmate Jonny and I worked on this project. As we both wanted the challenge of working with resources we hadn’t used up until this point, we decided a map-based app would be a great foundation. 
 
 Together we created 'Park My Bike', an app that allows the user to locate parking space for their bicycle.
 
@@ -30,8 +30,8 @@ This made up my second project of the General Assembly Software Engineering Imme
 
 #### External APIs
 
-* Postcodes.io
-* Tfl.co.uk
+* [Postcodes.io](https://postcodes.io/)
+* [Transport for London Unified API](https://api.tfl.gov.uk/)
 
 ## Instructions
 
@@ -66,7 +66,7 @@ We investigated the end points that the TfL website provided, looking at the spe
 
 With regards to the last point, we knew that from a usability point of view, latitude and longitude would not be something the average user would work with. Therefore, a postcode API was added to our list of resources.
 
-While our initial research work in terms of additional features, styling and usability was conducted with regular communication and on separate computers the bulk of the app’s creation was done in a pair programming format with @jonnysfarmer as the driver and I as the navigator.
+While our initial research work in terms of additional features, styling and usability was conducted with regular communication and on separate computers the bulk of the app’s creation was done in a pair programming format with Jonny as the driver and I as the navigator.
 
 ## Features
 
@@ -78,15 +78,15 @@ When the data is received from the TfL API, this data is plotted onto the map ar
 
 #### Mapbox Markers
 
-src/components/Images/Readme Images/markers.png
+![](src/components/Images/Readme Images/markers.png)
 
 #### Popup Info
 
-src/components/Images/Readme Images/popup.png
+![](src/components/Images/Readme Images/popup.png)
 
 #### Main Screens
 
-src/components/Images/Readme Images/homescreen.png	src/components/Images/Readme Images/mainscreen.png
+![](src/components/Images/Readme Images/homescreen.png) ![](src/components/Images/Readme Images/mainscreen.png)
 
 
 ### Code Snippets
@@ -143,7 +143,7 @@ We found the challenge of refreshing the directions a little difficult and took 
 
 We took the evening to assess and came up with two different approaches, however, both suffer from the problem of delayed updates.
 
-@jonnysfarmer used timeout functions to get the API request to wait on a state update, while I used a component did update method to constantly check for condition changes. Ultimately, when the user changes parking spot there is often the need to select the location twice before the directions are updated.
+Jonny used timeout functions to get the API request to wait on a state update, while I used a component did update method to constantly check for condition changes. Ultimately, when the user changes parking spot there is often the need to select the location twice before the directions are updated.
 
 ### Concluding Thoughts
 
