@@ -78,15 +78,15 @@ When the data is received from the TfL API, this data is plotted onto the map ar
 
 #### Mapbox Markers
 
-![](src/components/Images/Readme Images/markers.png)
+![](Readme-images/markers.png)
 
 #### Popup Info
 
-![](src/components/Images/Readme Images/popup.png)
+![](Readme-images/popup.png)
 
 #### Main Screens
 
-![](src/components/Images/Readme Images/homescreen.png) ![](src/components/Images/Readme Images/mainscreen.png)
+![](Readme-images/homescreen.png) ![](Readme-images/mainscreen.png)
 
 
 ### Code Snippets
