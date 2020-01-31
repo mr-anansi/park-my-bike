@@ -24,7 +24,6 @@ class Input extends React.Component {
       postcode: postcode,
       errors: ''
     })
-    console.log(this.state.postcode)
   }
 
   handleSubmit(e) {
