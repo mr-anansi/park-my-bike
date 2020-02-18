@@ -10,12 +10,14 @@ Together we created 'Park My Bike', an app that allows the user to locate parkin
 
 This made up my second project of the General Assembly Software Engineering Immersive program.
 
+Check out our app here: [Park My Bike](https://reggiemenson.com/park-my-bike/)
+
 ## Technologies Used
 #### Core
 
 * HTML5
 * CSS3
-* Javascript (ES6)
+* JavaScript (ES6)
 * React.js
 
 #### Additional Libraries
@@ -43,7 +45,7 @@ If you'd like to move to another point on the map and investigate further, simpl
 
 Once a particular parking location is selected, a starting location can be entered. This will then return directions in step by step format to the destination.
 
-If there's a change of mind, a new location can be selected and the directions will be updated. If the  starting location needs to be updated there is also an option to do so ('Change starting location').
+If there's a change of mind, a new location can be selected and the directions will be updated. If the starting location needs to be updated there is also an option to do so ('Change starting location').
 
 ## Methodology
 
@@ -54,7 +56,7 @@ The app has two main displays:
 
 ### The Process
 
-We began by brainstorming ideas. We used Mapbox for our map component and through some research found a library  to ease some of the map work involved with React compatibility (Reactmap GL). 
+We began by brainstorming ideas. We used Mapbox for our map component and through some research found a library to ease some of the map work involved with React compatibility (Reactmap GL). 
 
 We knew in order to have a good product and an efficient process we would need a good API. We quickly settled on an idea centred on bicycle parking areas inspired by my own daily bicycle commute.
 
@@ -86,12 +88,13 @@ When the data is received from the TfL API, this data is plotted onto the map ar
 
 #### Main Screens
 
-![](Readme-images/homescreen.png) ![](Readme-images/mainscreen.png)
+<img src="Readme-images/homescreen.png" height=500 >
+<img src="Readme-images/mainscreen.png" height=500 >
 
 
 ### Code Snippets
 
-The first view is set by bringing through information  through the router.
+The first view is set by bringing through information through the router.
 
 ```
 
@@ -115,7 +118,7 @@ handleSubmit(e) {
 
 ```
 
-Once the required data was received we mapped the data by coordinates using a marker element and an svg:
+Once the required data was received we mapped the data by coordinates using a marker element and an SVG:
 
 ```
 loadBikeParks = () => {
@@ -135,8 +138,6 @@ loadBikeParks = () => {
 ```
 
 
-## Challenges
-
 ### Bugs
 
 We found the challenge of refreshing the directions a little difficult and took time to address the issue. If a user had followed through and got directions up and then decided to change the location they were navigating to, old directions would be shown.
@@ -145,11 +146,19 @@ We took the evening to assess and came up with two different approaches, however
 
 Jonny used timeout functions to get the API request to wait on a state update, while I used a component did update method to constantly check for condition changes. Ultimately, when the user changes parking spot there is often the need to select the location twice before the directions are updated.
 
-### Concluding Thoughts
+### Challenges
 
-Overall, time pressure proved to be a challenge as well as  understanding what can be done in the time frame. Another element was using the new information we had just learned about React and APIs alongside a partner in a time pressure situation. 
+This was the first taste of pair-programming and we had to adapt quickly to the change in format and the time-pressure environment. Another element was using the new information we had just learned about React and APIs alongside a partner in a time pressure situation.
 
-However, we were able to deliver a solid product by focusing on the core deliverable and branching out from the single computer working style for reasearch purposes.
+However, we were able to deliver by focusing on the core deliverable and branching out from the single computer working style for research purposes.
+
+### Wins
+
+In the end we were able to tackle the task well, with Jonny's comfort with React playing a factor due to his own projects. I brought along research into supporting technologies and these two approaches ended up working well together.
+
+We were able to deliver a solid product comfortably in the time frame through our lean focus with enough time for styling.  
+
+
 
 
 
