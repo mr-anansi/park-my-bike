@@ -65,7 +65,7 @@ button {
   font-size: 36px;
   color: rgb(57,66,78);
     h1 {
-      font-size: 44px;
+      font-size: 40px;
       font-weight: bold;
       color: rgb(255,255,255)
     }
@@ -100,4 +100,11 @@ button {
 }
 #background-transparent{
   background-color: transparent;
+}
+
+.mapboxgl-popup-close-button {
+  font-size: large;
+  margin: 10px;
+  padding: 0;
+  z-index: 1;
 }

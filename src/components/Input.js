@@ -30,7 +30,6 @@ class Input extends React.Component {
     e.preventDefault()
     axios.get(`https://api.postcodes.io/postcodes/${this.state.postcode}`)
       .then(resp => {
-        console.log(resp)
         this.setState({
           export: {
             longitude: resp.data.result.longitude,
@@ -45,7 +44,6 @@ class Input extends React.Component {
 
 
   render() {
-    console.log(this.state.export)
     return (
 
       <section className="hero is-fullheight">
